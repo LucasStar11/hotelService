@@ -94,14 +94,14 @@ public class DataInitializer {
 
         // Настраиваем разные статусы и даты
         bookings.get(0).setStatus(BookingStatusEnum.ACTIVE);
-        bookings.get(1).setStatus(BookingStatusEnum.FINISHED);
+        bookings.get(1).setStatus(BookingStatusEnum.ACTIVE);
         bookings.get(2).setStatus(BookingStatusEnum.ACTIVE);
-        bookings.get(3).setStatus(BookingStatusEnum.FINISHED);
+        bookings.get(3).setStatus(BookingStatusEnum.ACTIVE);
         bookings.get(4).setStatus(BookingStatusEnum.ACTIVE);
 
         bookings.forEach(booking -> {
-            booking.setStartDate(now.minusDays(new Random().nextInt(5)).withHour(14));
-            booking.setEndDate(now.plusDays(new Random().nextInt(10) + 5).withHour(12));
+            booking.setStartDate(now.minusDays(new Random().nextInt(5)).withHour(14).withMinute(0).withSecond(0));
+            booking.setEndDate(now.plusDays(new Random().nextInt(10) + 5).withHour(12).withMinute(0).withSecond(0));
         });
 
         bookingRepository.saveAll(bookings);
