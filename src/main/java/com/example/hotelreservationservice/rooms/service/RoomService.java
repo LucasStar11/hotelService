@@ -60,8 +60,6 @@ public class RoomService {
         if (booking.getStartDate().isAfter(LocalDateTime.now())) {
             throw new IllegalStateException("Room cant be occupied now");
         }
-        booking.setStatus(BookingStatusEnum.ACTIVE);
-        bookingRepository.save(booking);
 
         room.setStatus(RoomStatusEnum.OCCUPIED);
         roomRepository.save(room);
