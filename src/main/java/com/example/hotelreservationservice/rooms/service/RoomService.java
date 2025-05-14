@@ -57,7 +57,7 @@ public class RoomService {
                         () -> new IllegalArgumentException("Booking for this room not found")
                 );
 
-        if (booking.getStartDate().isBefore(LocalDateTime.now())) {
+        if (booking.getStartDate().isAfter(LocalDateTime.now())) {
             throw new IllegalStateException("Room cant be occupied now");
         }
         booking.setStatus(BookingStatusEnum.ACTIVE);
